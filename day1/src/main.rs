@@ -10,12 +10,12 @@ fn main() {
         true => 1,
         _ => 0
         }).sum();
-    println!("sum of lights {}", i_count);
+    println!("{}", i_count);
     
     // part 2
     let i_count: i64 = vec_lines.tuple_windows::<(_,_,_)>().map(|(a,b,c)| a + b + c).tuple_windows().map(|(a,b)| match a < b {
         true => 1,
         _ => 0
         }).sum();
-    println!("sum of light-triplets {}", i_count);
+    println!("{}", i_count);
 }
