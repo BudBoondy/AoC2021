@@ -150,7 +150,7 @@ mod tests{
 
     #[test]
     fn test_sum_marked(){
-        let (draws, mut fields) = read_input(test_input.to_string());
+        let (_draws, mut fields) = read_input(test_input.to_string());
         fields[2].call_number(7);
         fields[2].call_number(4);
         fields[2].call_number(9);

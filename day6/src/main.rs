@@ -54,7 +54,7 @@ fn main() {
     for _ in 0..256{
         part2_lantern_pop = evo_step_fast(part2_lantern_pop);
     }
-    println!("{}", part2_lantern_pop.iter().map(|(x,y)| *y as i64).fold(0, |acc, x| acc + x));
+    println!("{}", part2_lantern_pop.iter().map(|(_x,y)| *y as i64).fold(0, |acc, x| acc + x));
 }
 
 
@@ -87,10 +87,10 @@ mod tests{
         println!("{:?}", val);
         val = evo_step_fast(val);
         println!("{:?}", val);
-        assert_eq!(5, val.iter().map(|(x,y)| *y as i64).fold(0, |acc, x| acc + x));
+        assert_eq!(5, val.iter().map(|(_x,y)| *y as i64).fold(0, |acc, x| acc + x));
         val = evo_step_fast(val);
         println!("{:?}", val);
-        assert_eq!(6, val.iter().map(|(x,y)| *y as i64).fold(0, |acc, x| acc + x));
+        assert_eq!(6, val.iter().map(|(_x,y)| *y as i64).fold(0, |acc, x| acc + x));
     } 
 
     #[test]
@@ -109,7 +109,7 @@ mod tests{
             println!("{:?}", val);
         }
         println!("{:?}", val);
-        assert_eq!(5934, val.iter().map(|(x,y)| *y as i64).fold(0, |acc, x| acc + x));
+        assert_eq!(5934, val.iter().map(|(_x,y)| *y as i64).fold(0, |acc, x| acc + x));
     }
     #[test]
     fn test_after_256_days(){
@@ -117,7 +117,7 @@ mod tests{
         for _ in 0..256{
             val = evo_step_fast(val);
         }
-        assert_eq!(26984457539, val.iter().map(|(x,y)| *y as i64).fold(0, |acc, x| acc + x));
+        assert_eq!(26984457539, val.iter().map(|(_x,y)| *y as i64).fold(0, |acc, x| acc + x));
     }
     
 }
