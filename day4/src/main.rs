@@ -11,10 +11,6 @@ struct Field{
 }
 
 impl Field {
-    fn check_diag(&self) -> bool{
-        self.board[0].marked && self.board[6].marked && self.board[12].marked && self.board[18].marked && self.board[24].marked
-    }
-
     fn check_row(&self) -> bool{
         let mut tmp: bool;
         for x in 0..5{
@@ -118,7 +114,7 @@ fn main() {
 mod tests{
     use super::*; 
 
-    static test_input: &str = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
+    static TEST_INPUT: &str = "7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
     22 13 17 11  0
     8  2 23  4 24
@@ -140,7 +136,7 @@ mod tests{
 
     #[test]
     fn test_read_bingo(){
-        let (draws, fields) = read_input(test_input.to_string());
+        let (draws, fields) = read_input(TEST_INPUT.to_string());
         assert_eq!(27, draws.len());
         assert_eq!(3, fields.len());
         assert_eq!(19, fields[0].board[24].val);
@@ -150,7 +146,7 @@ mod tests{
 
     #[test]
     fn test_sum_marked(){
-        let (_draws, mut fields) = read_input(test_input.to_string());
+        let (_draws, mut fields) = read_input(TEST_INPUT.to_string());
         fields[2].call_number(7);
         fields[2].call_number(4);
         fields[2].call_number(9);
@@ -167,20 +163,8 @@ mod tests{
     }
 
     #[test]
-    fn test_check_diag(){
-        let (_, mut fields) = read_input(test_input.to_string());
-        fields[2].call_number(14);
-        fields[2].call_number(16);
-        fields[2].call_number(23);
-        fields[2].call_number(6);
-        assert_eq!(false, fields[2].check_diag());
-        fields[2].call_number(7);
-        assert_eq!(true, fields[2].check_diag());
-    }
-
-    #[test]
     fn test_check_column(){
-        let (_, mut fields) = read_input(test_input.to_string());
+        let (_, mut fields) = read_input(TEST_INPUT.to_string());
         fields[2].call_number(10);
         fields[2].call_number(16);
         fields[2].call_number(15);
@@ -192,7 +176,7 @@ mod tests{
 
     #[test]
     fn test_check_row(){
-        let (_, mut fields) = read_input(test_input.to_string());
+        let (_, mut fields) = read_input(TEST_INPUT.to_string());
         fields[2].call_number(14);
         fields[2].call_number(10);
         fields[2].call_number(18);

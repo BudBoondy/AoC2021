@@ -7,10 +7,6 @@ fn median(numbers: &mut [u64]) -> u64 {
     numbers[mid]
 }
 
-fn mean(numbers: &[u64]) -> u64{
-    ((numbers.iter().sum::<u64>() as f64)/numbers.len() as f64).round() as u64
-}
-
 fn gaus_sum(n: u64) -> u64{
     ((n * n) + n) /2
 }
@@ -43,17 +39,4 @@ fn main() {
     println!("aligned: {}", align_vec(crabs.clone(), median));
     println!("aligned part2: {}", align_vec_part2(crabs));
 
-}
-
-#[cfg(test)]
-mod tests{
-    use super::*; 
-    static test_input: &str = "3,4,3,1,2";
-
-    #[test]
-    fn test_part2(){
-        let input = vec![16,1,2,0,4,2,7,1,2,14];
-        assert_eq!(5, mean(&input));
-        assert_eq!(170, align_vec_part2(input));
-    }
 }

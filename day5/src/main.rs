@@ -143,7 +143,7 @@ fn main() {
 mod tests{
     use super::*; 
 
-    static test_input: &str = "0,9 -> 5,9
+    static TEST_INPUT: &str = "0,9 -> 5,9
 8,0 -> 0,8
 9,4 -> 3,4
 2,2 -> 2,1
@@ -155,12 +155,12 @@ mod tests{
 5,5 -> 8,2";
     #[test]
     fn test_find_board_size(){
-        assert_eq!((10,10), find_board_size(&test_input.split("\n").collect()))
+        assert_eq!((10,10), find_board_size(&TEST_INPUT.split("\n").collect()))
     }
 
     #[test]
     fn test_sum_board(){
-        let line_input = test_input.split("\n").collect();
+        let line_input = TEST_INPUT.split("\n").collect();
         let (widht, height) = find_board_size(&line_input);
 
         // part1

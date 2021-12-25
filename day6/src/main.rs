@@ -62,7 +62,7 @@ fn main() {
 #[cfg(test)]
 mod tests{
     use super::*; 
-    static test_input: &str = "3,4,3,1,2";
+    static TEST_INPUT: &str = "3,4,3,1,2";
 
     
     fn vec_compare(va: &[u8], vb: &[u8]) -> bool {
@@ -73,7 +73,7 @@ mod tests{
     }
     #[test]
     fn test_evo_step(){
-        let mut val: Vec<u8> = test_input.split(",").map(|x| x.parse::<u8>().unwrap()).collect();
+        let mut val: Vec<u8> = TEST_INPUT.split(",").map(|x| x.parse::<u8>().unwrap()).collect();
         val = evo_step(val);
         assert_eq!(vec_compare(&vec![2,3,2,0,1], &val), true);
         val = evo_step(val);
@@ -83,7 +83,7 @@ mod tests{
 
     #[test]
     fn test_evo_step_fast(){
-        let mut val: HashMap<u8, u64> = parse_hashmap(test_input.split(",").map(|x| x.parse::<u8>().unwrap()).collect());
+        let mut val: HashMap<u8, u64> = parse_hashmap(TEST_INPUT.split(",").map(|x| x.parse::<u8>().unwrap()).collect());
         println!("{:?}", val);
         val = evo_step_fast(val);
         println!("{:?}", val);
@@ -95,7 +95,7 @@ mod tests{
 
     #[test]
     fn test_after_eighty_days(){
-        let mut val: Vec<u8> = test_input.split(",").map(|x| x.parse::<u8>().unwrap()).collect();
+        let mut val: Vec<u8> = TEST_INPUT.split(",").map(|x| x.parse::<u8>().unwrap()).collect();
         for _ in 0..80{
             val = evo_step(val);
         }
@@ -103,7 +103,7 @@ mod tests{
     }
     #[test]
     fn test_after_80_days(){
-        let mut val: HashMap<u8, u64> = parse_hashmap(test_input.split(",").map(|x| x.parse::<u8>().unwrap()).collect());
+        let mut val: HashMap<u8, u64> = parse_hashmap(TEST_INPUT.split(",").map(|x| x.parse::<u8>().unwrap()).collect());
         for _ in 0..80{
             val = evo_step_fast(val);
             println!("{:?}", val);
@@ -113,7 +113,7 @@ mod tests{
     }
     #[test]
     fn test_after_256_days(){
-        let mut val: HashMap<u8, u64> = parse_hashmap(test_input.split(",").map(|x| x.parse::<u8>().unwrap()).collect());
+        let mut val: HashMap<u8, u64> = parse_hashmap(TEST_INPUT.split(",").map(|x| x.parse::<u8>().unwrap()).collect());
         for _ in 0..256{
             val = evo_step_fast(val);
         }
